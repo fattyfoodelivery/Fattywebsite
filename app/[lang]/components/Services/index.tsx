@@ -84,7 +84,7 @@ export default async function Services({ lang }: { lang: Locale }) {
               </p>
             </div>
             <ul className="flex flex-col space-y-[18px]">
-              {page.services.choose_list.map(list=><li className="custom-list-bullet text-xl">{list}</li>)}
+              {page.services.choose_list.map(list=><li key={list} className="custom-list-bullet text-xl">{list}</li>)}
             </ul>
           </div>
           <div className='relative h-[666px] w-[699px] flex-shrink-0 object-contain'>

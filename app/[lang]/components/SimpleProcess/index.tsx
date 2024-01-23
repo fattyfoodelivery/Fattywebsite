@@ -42,7 +42,7 @@ export default async function SimpleProcess({ lang }: { lang: Locale }) {
             </p>
             <ul className='flex flex-col space-y-[16px]'>
               {page.process.order_list.map(list => (
-                <li className='custom-list-bullet text-lg text-white'>
+                <li key={list} className='custom-list-bullet text-lg text-white'>
                   {list}
                 </li>
               ))}
@@ -55,7 +55,7 @@ export default async function SimpleProcess({ lang }: { lang: Locale }) {
             </p>
             <ul className='flex flex-col space-y-[16px]'>
               {page.process.parcel_list.map(list => (
-                <li className='custom-list-bullet text-lg text-white'>
+                <li key={list} className='custom-list-bullet text-lg text-white'>
                   {list}
                 </li>
               ))}
