@@ -33,7 +33,13 @@ module.exports = {
         "accordian-summary": "#383838",
         
       },
+      fontSize: {
+        '2xs': '10px',
+        '3xs': '8px',
+        '3.5xl':'32px'
+      },
       screens: {
+        'md':'767px',
         'lg':'1360px',
         'xl': '1440px', 
         '2xl': '1536px', 

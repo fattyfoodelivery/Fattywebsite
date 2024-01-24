@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState } from 'react'
 import { Locale } from '@/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
@@ -40,10 +41,10 @@ export default function FAQ({ lang }: { lang: Locale }) {
 
   return (
     <section className='container mb-20 flex flex-col items-center'>
-      <p className='mb-[52px] text-center text-[32px] font-bold tracking-wider'>
+      <p className='mb-[52px] text-center text-3.5xl font-bold tracking-wider'>
         {faqData?.faq.title}
       </p>
-      <div className='flex w-[896px] flex-col space-y-4'>
+      <div className='flex w-full lg:w-[896px] flex-col space-y-4'>
         {faqData?.faq.questions.map((data: FAQItem) => {
           return (
             <Accordion

@@ -13,23 +13,23 @@ import Link from 'next/link'
 export default async function GetMore({ lang }: { lang: Locale }) {
   const { page } = await getDictionary(lang)
   return (
-    <section className='relative py-20'>
-      <div className='absolute left-[236px] top-[224px]'>
+    <section className='relative py-20 w-full overflow-hidden'>
+      <div className='absolute left-10 md:left-[236px] top-[224px]'>
         <div className='relative h-[305px] w-[678px] object-none'>
           <Image src={ApplicationBG} fill alt='app map' />
         </div>
       </div>
       <div className='h-[600px] w-full bg-soft-tertiary'>
-        <div className='container  flex items-center justify-center space-x-[135px]'>
-          <div className='relative mt-[55px] h-[545px] w-[361px]'>
+        <div className='container flex items-center justify-center md:space-x-9 lg:space-x-[85px] xl:space-x-[135px]'>
+          <div className='relative hidden md:block mt-[125px] lg:mt-[55px] h-[545px] !w-[361px] scale-75 lg:scale-100 -mr-[3rem] -pb-[2rem] lg:mr-0 lg:mb-0'>
             <Image src={HandHolderImg} quality={100} fill alt='app hand' />
           </div>
-          <div className='flex flex-col space-y-[32px]'>
-            <div className=' flex flex-col space-y-4 text-start'>
-              <p className='text-lg font-light italic text-primary'>
+          <div className='flex flex-col space-y-5 md:space-y-[32px] flex-1 mt-10 md:mt-0'>
+            <div className=' flex flex-col space-y-2 md:space-y-4 text-center md:text-start'>
+              <p className='text-base md:text-lg font-light italic text-primary'>
                 {page.process.order_now}
               </p>
-              <p className='text-[32px] font-bold leading-10'>
+              <p className='text-[24px] font-semibold md:text-3xl lg:text-3.5xl md:font-bold leading-10'>
                 {page.process.get_more}
               </p>
             </div>
@@ -38,18 +38,18 @@ export default async function GetMore({ lang }: { lang: Locale }) {
                 <div className='flex items-center space-x-4' key={step}>
                   <div className='relative h-[38px] w-[38px]'>
                     <div className='absolute left-0 top-0 h-full w-full rounded-full bg-primary opacity-30' />
-                    <div className='absolute left-[6px] top-[6px] z-10 h-[26px] w-[26px] rounded-full bg-primary text-center'>
+                    <div className='absolute left-[6px] top-[6px] text-sm md:text-base z-10 h-[26px] w-[26px] rounded-full bg-primary text-center'>
                       {i + 1}
                     </div>
                   </div>
-                  <p className='font-light'>{step}</p>
+                  <p className='font-light text-sm md:text-base'>{step}</p>
                 </div>
               ))}
             </div>
-            <div className='flex items-center space-x-4'>
+            <div className='flex items-center flex-wrap space-y-2 md:space-y-4 lg:space-y-0'>
                 <a
                   href='https://www.apple.com/app-store'
-                  className='flex rounded-lg bg-mid-primary px-4 py-2  space-x-2'
+                  className='flex rounded-lg bg-mid-primary h-[59px] px-4 py-2 space-x-2 mr-2 md:mr-4'
                 >
                   <Image
                     src={AppstoreImg}
@@ -58,13 +58,13 @@ export default async function GetMore({ lang }: { lang: Locale }) {
                     height={32}
                   />
                   <div className=''>
-                    <p className='font-normal text-xs '>{page.home.button}</p>
+                    <p className='font-normal text-2xs md:text-xs '>{page.home.button}</p>
                     <p className=''>App Store</p>
                   </div>
                 </a>
                 <a
                   href='https://play.google.com/store/games'
-                  className='flex rounded-lg bg-mid-primary px-4 py-2  space-x-2'
+                  className='flex rounded-lg bg-mid-primary h-[59px] px-4 py-2  space-x-2 mr-2 md:mr-4'
                 >
                   <Image
                     src={GooglePlayImg}
@@ -73,13 +73,13 @@ export default async function GetMore({ lang }: { lang: Locale }) {
                     height={26.667}
                   />
                   <div className=''>
-                    <p className='font-normal text-xs '>{page.home.button}</p>
+                    <p className='font-normal text-2xs md:text-xs '>{page.home.button}</p>
                     <p className=''>Google Play</p>
                   </div>
                 </a>
                 <a
                   href='https://apkpure.net/'
-                  className='flex rounded-lg bg-mid-primary px-4 py-2  space-x-2'
+                  className='flex rounded-lg bg-mid-primary h-[59px] px-4 py-2  space-x-2 mr-2 md:mr-4'
                 >
                   <Image
                     src={ApkPureImg}
@@ -88,13 +88,13 @@ export default async function GetMore({ lang }: { lang: Locale }) {
                     height={26.667}
                   />
                   <div className=''>
-                    <p className='font-normal text-xs '>{page.home.button}</p>
+                    <p className='font-normal text-2xs md:text-xs '>{page.home.button}</p>
                     <p className=''>APK Pure</p>
                   </div>
                 </a>
                 <a
                   href=''
-                  className='flex rounded-lg bg-mid-primary px-4 py-2  space-x-2'
+                  className='flex rounded-lg bg-mid-primary h-[59px] px-4 py-2  space-x-2 mr-2 md:mr-4'
                 >
                   <Image
                     src={DownloadImg}
@@ -103,7 +103,7 @@ export default async function GetMore({ lang }: { lang: Locale }) {
                     height={26.667}
                   />
                   <div className=''>
-                    <p className='font-normal text-xs '>{page.home.button}</p>
+                    <p className='font-normal text-2xs md:text-xs '>{page.home.button}</p>
                     <p className=''>Directly</p>
                   </div>
                 </a>

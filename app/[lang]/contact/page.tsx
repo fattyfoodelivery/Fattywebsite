@@ -1,4 +1,3 @@
-'use client'
 import { Locale } from '@/i18n.config'
 import Header from '../components/Header'
 import Contact from '../components/ContactUs'

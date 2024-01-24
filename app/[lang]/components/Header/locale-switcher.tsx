@@ -18,12 +18,12 @@ export default function LocaleSwitcher() {
   }
 
   return (
-    <ul className='flex gap-x-3'>
+    <ul className='flex gap-x-3 z-10'>
           <li>
             <Link
               href={redirectedPathName('en')}
             >
-              <div className='relative w-[60px] h-10 '>
+              <div className='relative w-[40px] h-7 lg:w-[60px] lg:h-10 '>
                 <Image src={ENIcon} fill alt='en' />
               </div>
             </Link>
@@ -32,7 +32,7 @@ export default function LocaleSwitcher() {
           <Link
               href={redirectedPathName('zh')}
             >
-              <div className='relative w-[60px] h-10 '>
+              <div className='relative w-[40px] h-7 lg:w-[60px] lg:h-10 '>
                 <Image src={ZHIcon} fill alt='zh' />
               </div>
             </Link>

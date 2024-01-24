@@ -14,13 +14,13 @@ export default async function Services({ lang }: { lang: Locale }) {
     <section className='h-fit w-screen py-20'>
       <div className='container flex flex-col'>
         <div className='flex flex-col space-y-4 text-center'>
-          <p className='text-lg italic text-primary'>{page.services.title}</p>
-          <p className='text-[32px] font-bold leading-10'>
+          <p className='text-base md:text-lg italic text-primary'>{page.services.title}</p>
+          <p className='text-[24px] font-semibold md:text-3.5xl md:font-bold leading-10'>
             {page.services.description}
           </p>
         </div>
-        <div className='flex space-x-8 pb-[79px] pt-[50.5px]'>
-          <div className='relative h-[200px] w-[664px] overflow-hidden rounded-[10px] bg-soft-primary'>
+        <div className='flex flex-col lg:flex-row items-center justify-center -space-y-20 md:space-y-10 lg:space-y-0 lg:space-x-8 md:pb-[79px] md:pt-[50.5px]'>
+          <div className='relative scale-50 md:scale-100 h-[200px] w-[664px] overflow-hidden rounded-[10px] bg-soft-primary'>
             <Image
               src={ServiceBG}
               alt='service_bg'
@@ -33,7 +33,7 @@ export default async function Services({ lang }: { lang: Locale }) {
                 <p className='text-lg italic text-hard-primary'>
                   {page.services.food_description}
                 </p>
-                <p className='text-[32px] font-bold text-primary'>
+                <p className='text-3.5xl font-bold text-primary'>
                   {page.services.food_title}
                 </p>
               </div>
@@ -46,7 +46,7 @@ export default async function Services({ lang }: { lang: Locale }) {
               />
             </div>
           </div>
-          <div className='relative h-[200px] w-[664px] overflow-hidden rounded-[10px] bg-soft-primary'>
+          <div className='relative scale-50 md:scale-100 h-[200px] w-[664px] overflow-hidden rounded-[10px] bg-soft-primary'>
             <Image
               src={ServiceBG}
               alt='service_bg'
@@ -59,7 +59,7 @@ export default async function Services({ lang }: { lang: Locale }) {
                 <p className='text-lg italic text-hard-primary'>
                   {page.services.parcel_description}
                 </p>
-                <p className='text-[32px] font-bold text-primary'>
+                <p className='text-3.5xl font-bold text-primary'>
                   {page.services.parcel_title}
                 </p>
               </div>
@@ -73,21 +73,21 @@ export default async function Services({ lang }: { lang: Locale }) {
             </div>
           </div>
         </div>
-        <div className='flex items-center space-x-[79px]'>
-          <div className='flex flex-col space-y-[52px] w-[574px]'>
-            <div className='flex flex-col space-y-4 text-start'>
-              <p className='text-lg italic text-primary'>
+        <div className='flex flex-col md:flex-row items-center lg:space-x-[79px] justify-center'>
+          <div className='flex flex-col space-y-6 md:space-y-8 xl:space-y-[52px] w-fit md:w-[574px]'>
+            <div className='flex flex-col space-y-1 md:space-y-2 lg:space-y-4 text-start'>
+              <p className='text-2xs xl:text-lg italic text-primary'>
                 {page.services.choose_title}
               </p>
-              <p className='text-[32px] font-bold leading-10'>
+              <p className='text-lg md:text-xl xl:text-3.5xl text font-bold leading-10'>
                 {page.services.choose_question}
               </p>
             </div>
             <ul className="flex flex-col space-y-[18px]">
-              {page.services.choose_list.map(list=><li key={list} className="custom-list-bullet text-xl">{list}</li>)}
+              {page.services.choose_list.map((list,i)=><li key={i} className="custom-list-bullet text-xs md:text-sm xl:text-xl">{list}</li>)}
             </ul>
           </div>
-          <div className='relative h-[666px] w-[699px] flex-shrink-0 object-contain'>
+          <div className='relative h-[299px] w-[299px] md:h-[339px] md:w-[339px] lg:h-[666px] lg:w-[699px] flex-shrink-0 object-contain mt-8 md:mt-0'>
             <Image src={WhyChooseUsImg} alt='why choose us' fill />
           </div>
         </div>

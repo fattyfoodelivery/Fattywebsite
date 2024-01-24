@@ -12,50 +12,50 @@ export default async function SimpleProcess({ lang }: { lang: Locale }) {
   const { page } = await getDictionary(lang)
   return (
     <section className=''>
-      <div className='max-w-screen relative -z-20 flex items-center justify-center'>
+      <div className='max-w-screen relative -z-20 hidden md:flex items-center justify-center '>
         <div className='absolute left-0 top-0 z-10 h-full w-full bg-black opacity-50' />
-        <div className='relative h-[427px] w-[480px] object-contain '>
+        <div className='relative md:h-[227px] w-[227px] 2xl:h-[427px] 2xl:w-[480px] object-contain '>
           <Image src={GroupImg} alt='group' fill className='flex-grow' />
         </div>
-        <div className='relative h-[427px] w-[480px] object-contain'>
+        <div className='relative md:h-[227px] w-[227px] 2xl:h-[427px] 2xl:w-[480px] object-contain'>
           <Image src={Group1Img} alt='group' fill className='flex-grow' />
         </div>
-        <div className='relative h-[427px] w-[480px] object-contain'>
+        <div className='relative md:h-[227px] w-[227px] 2xl:h-[427px] 2xl:w-[480px] object-contain'>
           <Image src={Group2Img} alt='group' fill className='flex-grow' />
         </div>
-        <div className='relative h-[427px] w-[480px] object-contain'>
+        <div className='relative md:h-[227px] w-[227px] 2xl:h-[427px] 2xl:w-[480px] object-contain'>
           <Image src={Group3Img} alt='group' fill className='flex-grow' />
         </div>
       </div>
-      <div className='container z-20 -mt-[347px]'>
-        <div className='flex flex-col space-y-4 text-center mb-[52px]'>
-          <p className='text-lg italic text-primary font-light'>{page.process.title}</p>
-          <p className='text-[32px] text-white font-bold leading-10'>
+      <div className='container z-20 mt-0 md:-mt-[177px] xl:-mt-[347px]'>
+        <div className='flex flex-col space-y-1 xl:space-y-4 text-center mb-[18px] md:mb-[24px] xl:mb-[52px]'>
+          <p className='text-base md:text-lg italic text-primary font-medium'>{page.process.title}</p>
+          <p className='text-[24px] font-semibold md:text-3.5xl md:font-bold md:text-white leading-10'>
             {page.process.description}
           </p>
         </div>
-        <div className=' flex items-center space-x-[32px]'>
-          <div className='flex h-[533px] w-[664px] flex-col items-center justify-center space-y-6 rounded-[10px] bg-primary'>
+        <div className='flex flex-col md:flex-row items-center space-y-5 md:space-y-0 md:space-x-[32px]'>
+          <div className='flex h-[380px] md:h-[433px] xl:h-[533px] w-[300px] md:w-[564px] lg:w-[664px] flex-col items-center justify-center space-y-4 md:space-y-6 rounded-[10px] bg-primary'>
             <Image src={OrderIcon} alt='order icon' width={125} height={125} />
-            <p className='text-[32px] font-bold text-white'>
+            <p className='text-xl md:text-2xl lg:text-3.5xl font-semibold md:font-bold text-white'>
               {page.process.order_title}
             </p>
-            <ul className='flex flex-col space-y-[16px]'>
+            <ul className='flex flex-col space-y-2 md:space-y-3 xl:space-y-4'>
               {page.process.order_list.map(list => (
-                <li key={list} className='custom-list-bullet text-lg text-white'>
+                <li key={list} className='custom-list-bullet text-sm md:text-base lg:text-lg text-white'>
                   {list}
                 </li>
               ))}
             </ul>
           </div>
-          <div className='flex h-[533px] w-[664px] flex-col items-center justify-center space-y-6 rounded-[10px] bg-primary'>
+          <div className='flex h-[380px] md:h-[433px] xl:h-[533px] w-[300px] md:w-[564px] lg:w-[664px] flex-col items-center justify-center space-y-4 md:space-y-6 rounded-[10px] bg-primary'>
             <Image src={ParcelIcon} alt='order icon' width={125} height={125} />
-            <p className='text-[32px] font-bold text-white'>
+            <p className='text-xl md:text-2xl lg:text-3.5xl font-semibold md:font-bold text-white'>
               {page.process.parcel_title}
             </p>
-            <ul className='flex flex-col space-y-[16px]'>
+            <ul className='flex flex-col space-y-2 md:space-y-3 xl:space-y-4'>
               {page.process.parcel_list.map(list => (
-                <li key={list} className='custom-list-bullet text-lg text-white'>
+                <li key={list} className='custom-list-bullet text-sm md:text-base lg:text-lg text-white'>
                   {list}
                 </li>
               ))}
