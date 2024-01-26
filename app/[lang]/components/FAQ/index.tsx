@@ -19,17 +19,9 @@ type FAQData = {
   faq: FAQPage
 }
 
-export default function FAQ({ lang }: { lang: Locale }) {
-  const [faqData, setFaqData] = useState<FAQData | null>(null)
+export default function FAQ({ page,data }: { page:FAQData,data:any }) {
   const [currentId, setCurrentId] = useState<string>('1')
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { page } = await getDictionary(lang)
-      setFaqData(page)
-    }
-    fetchData()
-  }, [lang])
 
   function toggleHandler(id: string) {
     if (currentId === id) {
@@ -41,11 +33,11 @@ export default function FAQ({ lang }: { lang: Locale }) {
 
   return (
     <section className='container mb-20 flex flex-col items-center'>
-      <p className='mb-[52px] text-center text-3.5xl font-bold tracking-wider'>
-        {faqData?.faq.title}
+      <p className='mb-[52px] text-center text-lg md:text-2xl lg:text-3.5xl font-bold tracking-wider'>
+        {page?.faq.title}
       </p>
       <div className='flex w-full lg:w-[896px] flex-col space-y-4'>
-        {faqData?.faq.questions.map((data: FAQItem) => {
+        {data?.map((data: FAQItem) => {
           return (
             <Accordion
               key={data.id}

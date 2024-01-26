@@ -35,16 +35,18 @@
       "order_title": "How to Order Food",
       "order_list": [
         "Search the food you love to eat",
-        "Search the food you love to eat",
-        "Search the food you love to eat",
-        "Search the food you love to eat"
+        "Add it into the cart",
+        "Fill Checkout information",
+        "Choose the Payment",
+        "Order Success"
       ],
       "parcel_title": "How to Send Parcel",
       "parcel_list": [
-        "Search the food you love to eat",
-        "Search the food you love to eat",
-        "Search the food you love to eat",
-        "Search the food you love to eat"
+        "Select Parcel",
+        "Fill Sender information",
+        "Fill Receiver information",
+        "Choose Parcel Type",
+        "Success Delivery"
       ],
       "order_now": "Order Now!",
       "get_more": "Get More With Our Application",
@@ -56,6 +58,7 @@
       "button": "Download on the",
       "mail_title": "Get The Latest News And Offers",
       "mail_description": "Subscribe to our newsletter",
+      "email":"Your Email",
       "subscribe": "Subscribe"
     },
     "contact": {

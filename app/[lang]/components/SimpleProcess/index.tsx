@@ -34,28 +34,28 @@ export default async function SimpleProcess({ lang }: { lang: Locale }) {
             {page.process.description}
           </p>
         </div>
-        <div className='flex flex-col md:flex-row items-center space-y-5 md:space-y-0 md:space-x-[32px]'>
-          <div className='flex h-[380px] md:h-[433px] xl:h-[533px] w-[300px] md:w-[564px] lg:w-[664px] flex-col items-center justify-center space-y-4 md:space-y-6 rounded-[10px] bg-primary'>
+        <div className='flex flex-col md:flex-row items-center justify-center space-y-5 md:space-y-0 md:space-x-[32px]'>
+          <div className='flex h-[460px] xl:h-[533px] w-[300px] md:w-[564px] lg:w-[664px] flex-col items-center justify-center space-y-4 md:space-y-6 rounded-[10px] bg-primary px-2 py-4'>
             <Image src={OrderIcon} alt='order icon' width={125} height={125} />
             <p className='text-xl md:text-2xl lg:text-3.5xl font-semibold md:font-bold text-white'>
               {page.process.order_title}
             </p>
-            <ul className='flex flex-col space-y-2 md:space-y-3 xl:space-y-4'>
-              {page.process.order_list.map(list => (
-                <li key={list} className='custom-list-bullet text-sm md:text-base lg:text-lg text-white'>
+            <ul className='flex flex-col space-y-2 md:space-y-3 xl:space-y-4 text-center'>
+              {page.process.order_list.map((list,i) => (
+                <li key={i} className='custom-list-bullet text-sm md:text-base lg:text-lg text-white'>
                   {list}
                 </li>
               ))}
             </ul>
           </div>
-          <div className='flex h-[380px] md:h-[433px] xl:h-[533px] w-[300px] md:w-[564px] lg:w-[664px] flex-col items-center justify-center space-y-4 md:space-y-6 rounded-[10px] bg-primary'>
+          <div className='flex h-[460px] xl:h-[533px] w-[300px] md:w-[564px] lg:w-[664px] flex-col items-center justify-center space-y-4 md:space-y-6 rounded-[10px] bg-primary px-2 py-4'>
             <Image src={ParcelIcon} alt='order icon' width={125} height={125} />
             <p className='text-xl md:text-2xl lg:text-3.5xl font-semibold md:font-bold text-white'>
               {page.process.parcel_title}
             </p>
-            <ul className='flex flex-col space-y-2 md:space-y-3 xl:space-y-4'>
-              {page.process.parcel_list.map(list => (
-                <li key={list} className='custom-list-bullet text-sm md:text-base lg:text-lg text-white'>
+            <ul className='flex flex-col space-y-2 md:space-y-3 xl:space-y-4 text-center'>
+              {page.process.parcel_list.map((list,i) => (
+                <li key={i} className='custom-list-bullet text-sm md:text-base lg:text-lg text-white'>
                   {list}
                 </li>
               ))}

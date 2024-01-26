@@ -1,0 +1,122 @@
+{
+  "navigation": {
+    "home": "ပင်မ",
+    "services": "ဝန်ဆောင်မှုများ",
+    "contact": "အဆက်အသွယ်"
+  },
+  "page": {
+    "home": {
+      "subtitle": "အစားအစာကို မှာယူရန် လွယ်ကူသောနည်းလမ်း",
+      "title": "Order Healthy And Fresh Food Any Time",
+      "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.",
+      "button": "Download on the"
+    },
+    "services": {
+      "title": "ဝန်ဆောင်မှုများ",
+      "description": "Fatty delivery ဖြင့်အကောင်းဆုံး အစားအစာများ မှာယူနိုင်ခြင်း",
+      "food_title": "အရသာရှိသောအစားအစာ",
+      "parcel_title": "ပါဆယ်ထုပ်ပို့ခြင်း",
+      "food_description": "အစားအစာကို မှာယူရန် လွယ်ကူသောနည်းလမ်း",
+      "parcel_description": "အိမ်အရောက် ဝန်ဆောင်မှုများ",
+      "choose_title": "ကျန်းမာရေးနဲ့ ညီညွတ်ပြီး လတ်ဆတ်တဲ့ အစားအစာများကို အချိန်မရွေးမှာယူနိုင်ခြင်း",
+      "choose_question": "Fatty delivery ကိုဘာကြောင့်ရွေးချယ် သင့်သလဲ?",
+      "choose_list": [
+        "ဆိုင်ပေါင်း တစ်ရာအထက် ကျော်မှ အစားအသောက်များ မှာယူနိုင်ခြင်း။",
+        "အစားအသောက် တစ်ထောင်အထက် မှာယူနိုင်ခြင်း။",
+        "မြို့နယ်​အလိုက်​ပို့​ဆောင်​​ပေးနိုင်ခြင်း။",
+        "မြန်ဆန်ပြီး ယုံကြည်စိတ်ချရခြင်း။",
+        "Customer တွေကို အရမ်းဂရုစိုက်ခြင်း။",
+        "မြို့နယ်အတွင်း နံပါတ် ၁ အစားအသောက်နှင့် ပို့ဆောင်ရေး ဝန်ဆောင်မှု။"
+      ]
+    },
+    "process": {
+      "title": "ရိုးရှင်းသောလုပ်ဆောင်ချက်",
+      "description": "ဘယ်လိုအလုပ်လုပ်လဲပါသလဲ။",
+      "order_title": "အစားအသောက်ကို ဘယ်လို မှာရပါမလဲ။",
+      "order_list": [
+        "သင်စားချင်သောအစားအစာကို ရှာဖွေလိုက်ပါ။",
+        "ခြင်းထောင်းထဲထည့်ပါ။",
+        "Checkout လုပ်ရန် အချက်အလက် ဖြည့်ပေးပါ။",
+        "ငွေပေးချေမည့် အမျိုးအစားကို ရွေးချယ်ပါ။",
+        "အော်ဒါမှာယူမှူအောင်မြင်ပါသည်။"
+      ],
+      "parcel_title": "ပါဆယ်ပိုရမည့်နည်းလမ်း",
+      "parcel_list": [
+        "ပါဆယ်ထုပ်ကို ရွေးပါ။",
+        "ပါဆယ်ထုပ်များ အော်ဒါတင်ပါ။",
+        "အက်မင် ထံမှ ဖုန်းခေါ်ဆိုပါလိမ့်မည်။",
+        "အော်ဒါမှာယူမှူအောင်မြင်ပါသည်။",
+        "အောင်မြင်စွာ ပေးပို့ပြီးပါပြီ။"
+      ],
+      "order_now": "ယခုမှာယူလိုက်ပါ",
+      "get_more": "ကျွန်ုပ်တို့၏အက်ပ်ဖြင့် ပိုမိုရယူပါ။",
+      "steps": [
+        "ပေးပို့မှုအခြေအနေအား လိုက်နာပါ။",
+        "နေရာမရွေး မှာယူနိုင်ပါသည်။",
+        "အရေးကြီးသောသတိပေးချက်များကိုရယူပါ။"
+      ],
+      "button": "Download on the",
+      "mail_title": "နောက်ဆုံးရသတင်းများနှင့် ကမ်းလှမ်းချက်များကို ရယူပါ။",
+      "mail_description": "ကျွန်ုပ်တို့၏သတင်းလွှာကို စာရင်းသွင်းပါ။",
+      "email":"သင့်အီးမေးလ်",
+      "subscribe": "စာရင်းသွင်းပါ"
+    },
+    "contact": {
+      "description": "ဆက်သွယ်လိုက်ရန် ",
+      "title": "ဆက်သွယ်ရန်",
+      "lasio": "လားရှိုးလိပ်စာ",
+      "muse": "မူဆယ်လိပ်စာ",
+      "name": "နာမည်",
+      "name_input": "နာမည်ရိုက်ပါ",
+      "phone": "ဖုန်းနံပါတ်",
+      "email": "အီးမေးလ်လိပ်စာ",
+      "subject": "ခေါင်းစဉ်",
+      "subject_input": "ခေါင်းစဉ်ရိုက်ပါ",
+      "message": "မက်ဆေ့ချ်",
+      "message_input": "မက်ဆေ့ချ်ရိုက်ပါ",
+      "button": "ယခုပို့ပါ"
+    },
+    "faq": {
+      "title": "အမေးများသောမေးခွန်းများ",
+      "questions": [
+        {
+          "id": "1",
+          "question": "How does the food delivery app work?",
+          "answer": "Lorem ipsum dolor sit amet consectetur. Elit erat risus sapien bibendum ipsum in magna odio. In id quam eget viverra venenatis velit enim. Iaculis venenatis at id integer ultrices lectus. Et faucibus in mauris ut quam."
+        },
+        {
+          "id": "2",
+          "question": "How to make partnership with Fatty Delivery?",
+          "answer": "Lorem ipsum dolor sit amet consectetur. Elit erat risus sapien bibendum ipsum in magna odio. In id quam eget viverra venenatis velit enim. Iaculis venenatis at id integer ultrices lectus. Et faucibus in mauris ut quam."
+        },
+        {
+          "id": "3",
+          "question": "What areas do you serve?",
+          "answer": "Lorem ipsum dolor sit amet consectetur. Elit erat risus sapien bibendum ipsum in magna odio. In id quam eget viverra venenatis velit enim. Iaculis venenatis at id integer ultrices lectus. Et faucibus in mauris ut quam."
+        },
+        {
+          "id": "4",
+          "question": " How can I download the app?",
+          "answer": "Lorem ipsum dolor sit amet consectetur. Elit erat risus sapien bibendum ipsum in magna odio. In id quam eget viverra venenatis velit enim. Iaculis venenatis at id integer ultrices lectus. Et faucibus in mauris ut quam."
+        },
+        {
+          "id": "5",
+          "question": "How can I track my order?",
+          "answer": "Lorem ipsum dolor sit amet consectetur. Elit erat risus sapien bibendum ipsum in magna odio. In id quam eget viverra venenatis velit enim. Iaculis venenatis at id integer ultrices lectus. Et faucibus in mauris ut quam."
+        },
+        {
+          "id": "6",
+          "question": " What payment methods are accepted?",
+          "answer": "Lorem ipsum dolor sit amet consectetur. Elit erat risus sapien bibendum ipsum in magna odio. In id quam eget viverra venenatis velit enim. Iaculis venenatis at id integer ultrices lectus. Et faucibus in mauris ut quam."
+        }
+      ]
+    },
+    "footer": {
+      "description": "Discover the ultimate convenience with our food delivery and delivery app. Satisfy your cravings by browsing a variety of restaurants, and track your order in real-time. Enjoy a seamless experience.",
+      "link": "Quick Link",
+      "address": "Our Address",
+      "follow": "Follow Us On",
+      "copyright": "Copyright © 2024. All Rights Reserved. Design By Fatty Food Delivery."
+    }
+  }
+}

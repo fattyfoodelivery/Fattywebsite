@@ -1,5 +1,4 @@
 import { Locale } from '@/i18n.config'
-import { getDictionary } from '@/lib/dictionary'
 import Image from 'next/image'
 import ApplicationBG from '../img/application_map.png'
 import HandHolderImg from '../img/appplication_img.png'
@@ -10,8 +9,7 @@ import ApkPureImg from '../img/apkpure.svg'
 import DownloadImg from '../img/download.svg'
 import Link from 'next/link'
 
-export default async function GetMore({ lang }: { lang: Locale }) {
-  const { page } = await getDictionary(lang)
+export default function GetMore({page,data }: {page:any,data:any }) {
   return (
     <section className='relative py-20 w-full overflow-hidden'>
       <div className='absolute left-10 md:left-[236px] top-[224px]'>
@@ -34,7 +32,7 @@ export default async function GetMore({ lang }: { lang: Locale }) {
               </p>
             </div>
             <div className='flex flex-col space-y-[24px]'>
-              {page.process.steps.map((step, i) => (
+              {page.process.steps.map((step:string, i:number) => (
                 <div className='flex items-center space-x-4' key={step}>
                   <div className='relative h-[38px] w-[38px]'>
                     <div className='absolute left-0 top-0 h-full w-full rounded-full bg-primary opacity-30' />
@@ -46,25 +44,25 @@ export default async function GetMore({ lang }: { lang: Locale }) {
                 </div>
               ))}
             </div>
-            <div className='flex items-center flex-wrap space-y-2 md:space-y-4 lg:space-y-0'>
-                <a
-                  href='https://www.apple.com/app-store'
-                  className='flex rounded-lg bg-mid-primary h-[59px] px-4 py-2 space-x-2 mr-2 md:mr-4'
+            <div className='flex items-center flex-wrap'>
+            {data?.app_store.active && <Link
+                  href={data?.app_store.url}
+                  className='flex items-center justify-center rounded-lg w-[156px] sm:w-[166px] 2xl:w-[173px] my-1 bg-mid-primary h-[59px] px-4 py-2 space-x-2 mr-2 md:mr-4'
                 >
                   <Image
                     src={AppstoreImg}
                     alt='app store'
-                    width={32}
-                    height={32}
+                    width={24}
+                    height={26.667}
                   />
                   <div className=''>
-                    <p className='font-normal text-2xs md:text-xs '>{page.home.button}</p>
-                    <p className=''>App Store</p>
+                    <p className='font-normal text-2xs md:text-xs text-primary'>{page.home.button}</p>
+                    <p className='text-secondary'>App Store</p>
                   </div>
-                </a>
-                <a
-                  href='https://play.google.com/store/games'
-                  className='flex rounded-lg bg-mid-primary h-[59px] px-4 py-2  space-x-2 mr-2 md:mr-4'
+                </Link>}
+                {data?.play_store.active &&<Link
+                  href={data?.play_store.url}
+                  className='flex items-center justify-center rounded-lg w-[156px] sm:w-[166px] 2xl:w-[173px] my-1 bg-mid-primary h-[59px] px-4 py-2 space-x-2 mr-2 md:mr-4'
                 >
                   <Image
                     src={GooglePlayImg}
@@ -73,13 +71,13 @@ export default async function GetMore({ lang }: { lang: Locale }) {
                     height={26.667}
                   />
                   <div className=''>
-                    <p className='font-normal text-2xs md:text-xs '>{page.home.button}</p>
-                    <p className=''>Google Play</p>
+                    <p className='font-normal text-2xs md:text-xs text-primary'>{page.home.button}</p>
+                    <p className='text-secondary'>Google Play</p>
                   </div>
-                </a>
-                <a
-                  href='https://apkpure.net/'
-                  className='flex rounded-lg bg-mid-primary h-[59px] px-4 py-2  space-x-2 mr-2 md:mr-4'
+                </Link>}
+                {data?.apk_pure.active &&<Link
+                  href={data?.apk_pure.url}
+                  className='flex items-center justify-center rounded-lg w-[156px] sm:w-[166px] 2xl:w-[173px] my-1 bg-mid-primary h-[59px] px-4 py-2 space-x-2 mr-2 md:mr-4'
                 >
                   <Image
                     src={ApkPureImg}
@@ -88,13 +86,13 @@ export default async function GetMore({ lang }: { lang: Locale }) {
                     height={26.667}
                   />
                   <div className=''>
-                    <p className='font-normal text-2xs md:text-xs '>{page.home.button}</p>
-                    <p className=''>APK Pure</p>
+                    <p className='font-normal text-2xs md:text-xs text-primary'>{page.home.button}</p>
+                    <p className='text-secondary'>APK Pure</p>
                   </div>
-                </a>
-                <a
-                  href=''
-                  className='flex rounded-lg bg-mid-primary h-[59px] px-4 py-2  space-x-2 mr-2 md:mr-4'
+                </Link>}
+                {data?.direct_link.active &&<Link
+                  href={data?.direct_link.url}
+                  className='flex items-center justify-center rounded-lg w-[156px] sm:w-[166px] 2xl:w-[173px] my-1 bg-mid-primary h-[59px] px-4 py-2 space-x-2 mr-2 md:mr-4'
                 >
                   <Image
                     src={DownloadImg}
@@ -103,10 +101,10 @@ export default async function GetMore({ lang }: { lang: Locale }) {
                     height={26.667}
                   />
                   <div className=''>
-                    <p className='font-normal text-2xs md:text-xs '>{page.home.button}</p>
-                    <p className=''>Directly</p>
+                    <p className='font-normal text-2xs md:text-xs text-primary'>{page.home.button}</p>
+                    <p className='text-secondary'>Directly</p>
                   </div>
-                </a>
+                </Link>}
               </div>
           </div>
         </div>

@@ -1,107 +1,292 @@
+'use client'
 import Image from 'next/image'
-import { Locale } from '@/i18n.config'
-import { getDictionary } from '@/lib/dictionary'
 import GroupImg from '../img/contactGroup.jpg'
 import Group1Img from '../img/contactGroup1.jpg'
 import Group2Img from '../img/contactGroup2.jpg'
 import Group3Img from '../img/contactGroup3.jpg'
-import FormImg from '../img/contact form_img.jpg'
 import LocationIcon from '../img/location_ico.svg'
 import EmailIcon from '../img/email_ico.svg'
 import PhoneIcon from '../img/phone_ico.svg'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+import { sendMessageApi } from '@/controller'
+import DynamicMap from '../GoogleMap'
+import { useState } from 'react'
 
-export default async function Contact({ lang }: { lang: Locale }) {
-  const { page } = await getDictionary(lang)
+type page = {
+  contact: {
+    description: string
+    title: string
+    lasio: string
+    muse: string
+    name: string
+    name_input: string
+    phone: string
+    email: string
+    subject: string
+    subject_input: string
+    message: string
+    message_input: string
+    button: string
+  }
+}
+
+export interface FormData {
+  name: string
+  phone: string
+  email: string
+  subject: string
+  message: string
+}
+
+const validationSchema = yup.object().shape({
+  name: yup.string().required('Name is required'),
+  phone: yup.string().required('Phone number is required'),
+  email: yup.string().email('Invalid email').required('Email is required'),
+  subject: yup.string().required('Subject is required'),
+  message: yup.string().required('Message is required')
+})
+export default function Contact({ page, data }: { page: page; data: any }) {
+  const [isSuccess,setIsSuccess] = useState<boolean>(false);
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(validationSchema)
+  })
+
+  const onSubmit = async (data: FormData) => {
+    try {
+      const response = await sendMessageApi(data)
+      console.log(response)
+      if(response.success){
+        setValue('name','')
+        setValue('phone','')
+        setValue('email','')
+        setValue('subject','')
+        setValue('message','')
+        setIsSuccess(true);
+      }
+    } catch (error) {
+      console.error('Error during form submission:', error)
+      // Handle errors as needed
+    }
+  }
+
+  const locations = data?.locations.map((location:any) => ({
+    description: location.description,
+    lat: parseFloat(location.lat),
+    lng: parseFloat(location.lng),
+  }));
+
   return (
     <section className='relative'>
-      <div className='max-w-screen relative -z-20 flex items-center justify-center mb-2'>
+      <div className='max-w-screen relative -z-20 mb-2 flex items-center justify-center'>
         <div className='absolute left-0 top-0 z-10 h-full w-full bg-black opacity-50' />
-        <div className='relative md:w-[380px] md:h-[144px] xl:h-[244px] xl:w-[480px] object-contain '>
+        <div className='relative object-contain md:h-[144px] md:w-[380px] xl:h-[244px] xl:w-[480px] '>
           <Image src={GroupImg} alt='group' fill className='flex-grow' />
         </div>
-        <div className='relative md:w-[380px] md:h-[144px] xl:h-[244px] xl:w-[480px] object-contain'>
+        <div className='relative object-contain md:h-[144px] md:w-[380px] xl:h-[244px] xl:w-[480px]'>
           <Image src={Group1Img} alt='group' fill className='flex-grow' />
         </div>
-        <div className='relative md:w-[380px] md:h-[144px] xl:h-[244px] xl:w-[480px] object-contain'>
+        <div className='relative object-contain md:h-[144px] md:w-[380px] xl:h-[244px] xl:w-[480px]'>
           <Image src={Group2Img} alt='group' fill className='flex-grow' />
         </div>
-        <div className='relative md:w-[380px] md:h-[144px] xl:h-[244px] xl:w-[480px] object-contain'>
+        <div className='relative object-contain md:h-[144px] md:w-[380px] xl:h-[244px] xl:w-[480px]'>
           <Image src={Group3Img} alt='group' fill className='flex-grow' />
         </div>
       </div>
-      <div className='container absolute md:top-10 lg:top-[80px] left-1/2 right-1/2 transform -translate-x-1/2 '>
-        <div className='flex flex-col space-y-2 md:space-y-4 text-center mb-[52px]'>
-          <p className='text-sm md:text-base lg:text-lg  italic text-primary font-light'>{page.contact.description}</p>
-          <p className='text-[24px] font-semibold md:text-3.5xl md:font-bold md:text-white md:leading-7 lg:leading-10'>
-            {page.contact.title}
+      <div className='container absolute left-1/2 right-1/2 -translate-x-1/2 transform md:top-10 lg:top-12 xl:top-[80px] '>
+        <div className='mb-[52px] flex flex-col space-y-2 text-center md:space-y-4'>
+          <p className='text-sm font-light italic  text-primary md:text-base lg:text-lg'>
+            {page?.contact.description}
+          </p>
+          <p className='text-[24px] font-semibold md:text-3.5xl md:font-bold md:leading-7 md:text-white lg:leading-10'>
+            {page?.contact.title}
           </p>
         </div>
       </div>
-      <div className="container flex flex-col space-y-6 lg:space-y-0 lg:flex-row lg:space-x-8 my-[80px] items-center justify-center">
-        <div className="flex flex-col space-y-8">
-          <div className="relative w-full h-[120px] md:w-[664px] md:h-[346px] rounded-2xl">
-            <Image src={FormImg} fill alt='Address' />
+      <div className='container my-[80px] flex flex-col items-center justify-center space-y-6 lg:flex-row lg:items-start lg:space-x-8 lg:space-y-0'>
+        <div className='flex w-full flex-col space-y-8 md:w-fit'>
+          <div className='relative rounded-2xl'>
+            <Image
+              src={data.img}
+              alt='Address'
+              width={664}
+              height={346}
+              layout='responsive'
+            />
           </div>
-        <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row md:space-x-8 md:justify-between">
-          <div className="flex flex-col space-y-4">
-            <p className="text-lg md:text-xl xl:text-2xl mb-1 md:mb-2">{page.contact.lasio}</p>
-            <div className="flex items-center space-x-4">
-              <Image src={LocationIcon} width={40} height={40} alt='location'/>
-              <p className="text-xs lg:text-sm xl:text-base font-medium">Lashio, Shan State, Myanmar</p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Image src={PhoneIcon} width={40} height={40} alt='location'/>
-              <p className="text-xs lg:text-sm xl:text-base font-medium">09 251 840 901</p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Image src={EmailIcon} width={40} height={40} alt='location'/>
-              <p className="text-xs lg:text-sm xl:text-base font-medium">fattyfooddelivery@gmail.com</p>
-            </div>
-          </div>
-          <div className="flex flex-col space-y-4">
-            <p className="text-lg md:text-xl xl:text-2xl mb-1 md:mb-2">{page.contact.muse}</p>
-            <div className="flex items-center space-x-4">
-              <Image src={LocationIcon} width={40} height={40} alt='location'/>
-              <p className="text-xs lg:text-sm xl:text-base font-medium">Muse, Shan State, Myanmar</p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Image src={PhoneIcon} width={40} height={40} alt='location'/>
-              <p className="text-xs lg:text-sm xl:text-base font-medium">09 251 840 901</p>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Image src={EmailIcon} width={40} height={40} alt='location'/>
-              <p className="text-xs lg:text-sm xl:text-base font-medium">fattyfooddelivery@gmail.com</p>
-            </div>
+          <div className='flex flex-col space-y-6 md:flex-row md:justify-between md:space-x-8 md:space-y-0'>
+            {data &&
+              data.addresses.map((address: any, i: number) => (
+                <div className='flex flex-col space-y-4' key={i}>
+                  <p className='mb-1 text-lg md:mb-2 md:text-xl xl:text-2xl'>
+                    {address.address_title}
+                  </p>
+                  <div className='flex items-center space-x-4'>
+                    <Image
+                      src={LocationIcon}
+                      width={40}
+                      height={40}
+                      alt='location'
+                    />
+                    <p className='text-xs font-medium lg:text-sm xl:text-base'>
+                      {address.address}
+                    </p>
+                  </div>
+                  <div className='flex items-center space-x-4'>
+                    <Image
+                      src={PhoneIcon}
+                      width={40}
+                      height={40}
+                      alt='location'
+                    />
+                    <p className='text-xs font-medium lg:text-sm xl:text-base'>
+                      {address.phone}
+                    </p>
+                  </div>
+                  <div className='flex items-center space-x-4'>
+                    <Image
+                      src={EmailIcon}
+                      width={40}
+                      height={40}
+                      alt='location'
+                    />
+                    <p className='text-xs font-medium lg:text-sm xl:text-base'>
+                      {address.mail}
+                    </p>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
-        </div>
-        <div className="flex flex-col space-y-4 w-full lg:w-1/2">
-          <div className="flex flex-col space-y-2">
-            <p className="text-xs lg:text-sm xl:text-base">{page.contact.name}<span className='text-required'>*</span></p>
-            <input type="text" className='p-3 text-xs md:text-sm lg:text-base lg:p-4 rounded-md bg-tertiary font-medium text-light-secondary tracking-wide' placeholder={page.contact.name_input} />
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className='flex w-full flex-col space-y-4 lg:w-1/2'
+          onClick={()=>setIsSuccess(false)}
+        >
+          {
+            isSuccess && <p className="text-2xs md:text-xs text-green-500">Successfull sent!</p>
+          }
+          <div className='flex flex-col space-y-2'>
+            <p className='text-xs lg:text-sm xl:text-base'>
+              {page?.contact.name}
+              <span className='text-required'>*</span>
+            </p>
+
+            <input
+              type='text'
+              {...register('name')}
+              className={`${
+                errors?.name ? 'border border-red-500' : ''
+              } rounded-md bg-tertiary p-3 text-xs font-medium tracking-wide text-light-secondary md:text-sm lg:p-4 lg:text-base`}
+              placeholder={page?.contact.name_input}
+            />
+            {errors?.name && (
+              <div className='text-2xs text-red-500 md:text-xs'>
+                {errors?.name?.message}
+              </div>
+            )}
           </div>
-          <div className="flex flex-col space-y-2">
-            <p className="text-xs lg:text-sm xl:text-base">{page.contact.phone}<span className='text-required'>*</span></p>
-            <input type="text" className='p-3 text-xs md:text-sm lg:text-base lg:p-4 rounded-md bg-tertiary font-medium text-light-secondary tracking-wide' placeholder={'09 123 456 789'} />
+          <div className='flex flex-col space-y-2'>
+            <p className='text-xs lg:text-sm xl:text-base'>
+              {page?.contact.phone}
+              <span className='text-required'>*</span>
+            </p>
+
+            <input
+              type='text'
+              {...register('phone')}
+              className={`${
+                errors?.phone ? 'border border-red-500' : ''
+              } rounded-md bg-tertiary p-3 text-xs font-medium tracking-wide text-light-secondary md:text-sm lg:p-4 lg:text-base`}
+              placeholder={'09 123 456 789'}
+            />
+            {errors?.phone && (
+              <div className='text-2xs text-red-500 md:text-xs'>
+                {errors?.phone?.message}
+              </div>
+            )}
           </div>
-          <div className="flex flex-col space-y-2">
-            <p className="text-xs lg:text-sm xl:text-base">{page.contact.email}<span className='text-required'>*</span></p>
-            <input type="text" className='p-3 text-xs md:text-sm lg:text-base lg:p-4 rounded-md bg-tertiary font-medium text-light-secondary tracking-wide' placeholder={'susu@gmail.com'} />
+          <div className='flex flex-col space-y-2'>
+            <p className='text-xs lg:text-sm xl:text-base'>
+              {page?.contact.email}
+              <span className='text-required'>*</span>
+            </p>
+
+            <input
+              type='text'
+              {...register('email')}
+              className={`${
+                errors?.email ? 'border border-red-500' : ''
+              } rounded-md bg-tertiary p-3 text-xs font-medium tracking-wide text-light-secondary md:text-sm lg:p-4 lg:text-base`}
+              placeholder={'susu@gmail.com'}
+            />
+            {errors?.email && (
+              <div className='text-2xs text-red-500 md:text-xs'>
+                {errors?.email?.message}
+              </div>
+            )}
           </div>
-          <div className="flex flex-col space-y-2">
-            <p className="text-xs lg:text-sm xl:text-base">{page.contact.subject}<span className='text-required'>*</span></p>
-            <input type="text" className='p-3 text-xs md:text-sm lg:text-base lg:p-4 rounded-md bg-tertiary font-medium text-light-secondary tracking-wide' placeholder={page.contact.subject_input} />
+          <div className='flex flex-col space-y-2'>
+            <p className='text-xs lg:text-sm xl:text-base'>
+              {page?.contact.subject}
+              <span className='text-required'>*</span>
+            </p>
+
+            <input
+              type='text'
+              {...register('subject')}
+              className={`${
+                errors?.subject ? 'border border-red-500' : ''
+              } rounded-md bg-tertiary p-3 text-xs font-medium tracking-wide text-light-secondary md:text-sm lg:p-4 lg:text-base`}
+              placeholder={page?.contact.subject_input}
+            />
+            {errors?.subject && (
+              <div className='text-2xs text-red-500 md:text-xs'>
+                {errors?.subject?.message}
+              </div>
+            )}
           </div>
-          <div className="flex flex-col space-y-2">
-            <p className="text-xs lg:text-sm xl:text-base">{page.contact.message}<span className='text-required'>*</span></p>
-            <textarea className='p-3 text-xs md:text-sm lg:text-base lg:p-4 h-[120px] rounded-md bg-tertiary font-medium text-light-secondary tracking-wide' placeholder={page.contact.message_input} />
+          <div className='flex flex-col space-y-2'>
+            <p className='text-xs lg:text-sm xl:text-base'>
+              {page?.contact.message}
+              <span className='text-required'>*</span>
+            </p>
+
+            <textarea
+              {...register('message')}
+              className={`${
+                errors?.message ? 'border border-red-500' : ''
+              } h-[120px] rounded-md bg-tertiary p-3 text-xs font-medium tracking-wide text-light-secondary md:text-sm lg:p-4 lg:text-base`}
+              placeholder={page?.contact.message_input}
+            />
+            {errors?.message && (
+              <div className='text-2xs text-red-500 md:text-xs'>
+                {errors?.message?.message}
+              </div>
+            )}
           </div>
-          <div className="mt-4 bg-primary rounded-lg text-xs md:text-sm lg:text-base py-2 px-4 lg:py-4 lg:px-6 text-white self-end">{page.contact.button}</div>
-        </div>
+          <button
+            type='submit'
+            className='mt-4 self-end rounded-lg bg-primary px-4 py-2 text-xs text-white md:text-sm lg:px-6 lg:py-4 lg:text-base'
+          >
+            {page?.contact.button}
+          </button>
+        </form>
       </div>
-      <div className="my-20 container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d550.0832348844117!2d96.10232810935437!3d21.953605363471933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cb6d73cb94dda5%3A0x9b2bd8a7aa3149ef!2sFatty!5e0!3m2!1sen!2smm!4v1705857859308!5m2!1sen!2smm"  loading="lazy" className='w-full h-[458px] rounded-lg'></iframe>
-      </div>
+      {data.locations && (
+        <div className='container my-20'>
+          <DynamicMap
+            locations={locations}
+            apiKey='AIzaSyAIJoMRTOI9Ux3NNdB6KZ-QPX6SzspXcTg'
+          />
+        </div>
+      )}
     </section>
   )
 }

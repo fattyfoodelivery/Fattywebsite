@@ -1,14 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
-import { Locale } from '@/i18n.config'
-import { getDictionary } from '@/lib/dictionary'
 import ServiceBG from '../img/services_bg.png'
 import OrderIcon from '../img/order.svg'
 import ParcelIcon from '../img/parcel.svg'
 import WhyChooseUsImg from '../img/whyChooseUs.png'
 
-export default async function Services({ lang }: { lang: Locale }) {
-  const { page } = await getDictionary(lang)
+export default async function Services({ page,data }:{page:any,data:any}) {
 
   return (
     <section className='h-fit w-screen py-20'>
@@ -29,7 +26,7 @@ export default async function Services({ lang }: { lang: Locale }) {
               className='absolute right-0 '
             />
             <div className='z-10 flex items-center justify-center space-x-[100px]'>
-              <div className='flex flex-col space-y-6'>
+              <div className='flex flex-col space-y-6 pl-14'>
                 <p className='text-lg italic text-hard-primary'>
                   {page.services.food_description}
                 </p>
@@ -55,7 +52,7 @@ export default async function Services({ lang }: { lang: Locale }) {
               className='absolute right-0'
             />
             <div className='z-10 flex items-center justify-center space-x-[100px]'>
-              <div className='flex flex-col space-y-6'>
+              <div className='flex flex-col space-y-6 pl-14'>
                 <p className='text-lg italic text-hard-primary'>
                   {page.services.parcel_description}
                 </p>
@@ -84,7 +81,7 @@ export default async function Services({ lang }: { lang: Locale }) {
               </p>
             </div>
             <ul className="flex flex-col space-y-[18px]">
-              {page.services.choose_list.map((list,i)=><li key={i} className="custom-list-bullet text-xs md:text-sm xl:text-xl">{list}</li>)}
+              {data.map((list:string,i:number)=><li key={i} className="custom-list-bullet text-xs md:text-sm xl:text-xl">{list}</li>)}
             </ul>
           </div>
           <div className='relative h-[299px] w-[299px] md:h-[339px] md:w-[339px] lg:h-[666px] lg:w-[699px] flex-shrink-0 object-contain mt-8 md:mt-0'>

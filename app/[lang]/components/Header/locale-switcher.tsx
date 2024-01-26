@@ -1,5 +1,3 @@
-'use client'
-
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
@@ -18,7 +16,16 @@ export default function LocaleSwitcher() {
   }
 
   return (
-    <ul className='flex gap-x-3 z-10'>
+    <ul className='flex gap-x-1 lg:gap-x-3 z-10'>
+          <li>
+          <Link
+              href={redirectedPathName('mm')}
+            >
+              <div className='relative w-[40px] h-7 lg:w-[60px] lg:h-10 '>
+                <Image src={MMIcon} fill alt='mm' />
+              </div>
+            </Link>
+          </li>
           <li>
             <Link
               href={redirectedPathName('en')}
@@ -30,7 +37,7 @@ export default function LocaleSwitcher() {
           </li>
           <li>
           <Link
-              href={redirectedPathName('zh')}
+              href={redirectedPathName('ch')}
             >
               <div className='relative w-[40px] h-7 lg:w-[60px] lg:h-10 '>
                 <Image src={ZHIcon} fill alt='zh' />
