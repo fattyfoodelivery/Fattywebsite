@@ -17,7 +17,7 @@ export default async function Footer({ lang }: { lang: Locale }) {
   const { page } = await getDictionary(lang)
   const data = await getFetchData(lang)
 
-  const footer_address = data.addresses.filter(
+  const footer_address = data?.addresses?.filter(
     (address: any) => address.is_footer_address === 1
   )[0]
 
@@ -49,7 +49,7 @@ export default async function Footer({ lang }: { lang: Locale }) {
             </p>
           </div>
           <p className='text-xs font-light leading-7 tracking-wide md:text-sm lg:text-base'>
-            {data.editable['footer-description']}
+            {data?.editable?.['footer-description']}
           </p>
         </div>
         <div className='flex w-full flex-col justify-start space-y-2 place-self-start md:mr-7 md:w-1/6 md:space-y-4 lg:mr-12 lg:space-y-6'>
@@ -97,12 +97,12 @@ export default async function Footer({ lang }: { lang: Locale }) {
           </div>
         </div>
         <div className='relative flex w-full flex-col justify-start space-y-2 place-self-start md:mr-7 md:w-1/4 md:space-y-4 lg:mr-12 lg:space-y-6'>
-          {data.social.length>0 && (
+          {data?.social?.length>0 && (
             <p className='text-lg md:text-xl lg:text-2xl'>
               {page.footer.follow}
             </p>
           )}
-          {data.social.length>0 &&
+          {data?.social?.length>0 &&
             data.social.map((data: any) => (
               <Link
                 key={data.id}
@@ -123,7 +123,7 @@ export default async function Footer({ lang }: { lang: Locale }) {
                 </p>
               </Link>
             ))}
-            {data.social.length>0 &&
+            {data?.social?.length>0 &&
           <div className='left-[136.69px] hidden md:absolute md:-top-10 md:block lg:top-[32.04px] xl:left-[176.69px]'>
             <div className='relative h-[145px] w-[150.186px]'>
               <Image src={RiderImg} fill alt='rider' />

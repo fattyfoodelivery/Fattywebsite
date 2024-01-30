@@ -76,7 +76,7 @@ export default function Contact({ page, data }: { page: page; data: any }) {
     }
   }
 
-  const locations = data?.locations.map((location: any) => ({
+  const locations = data?.locations?.map((location: any) => ({
     description: location.description,
     lat: parseFloat(location.lat),
     lng: parseFloat(location.lng)
@@ -113,7 +113,7 @@ export default function Contact({ page, data }: { page: page; data: any }) {
         <div className='flex w-full flex-col space-y-8 md:w-fit'>
           <div className='relative rounded-2xl'>
             <Image
-              src={data.img}
+              src={data?.img}
               alt='Address'
               width='0'
               height='0'
@@ -123,7 +123,7 @@ export default function Contact({ page, data }: { page: page; data: any }) {
           </div>
           <div className='grid grid-cols-1 gap-6 md:grid-cols-2 md:justify-between md:gap-x-8 md:gap-y-4'>
             {data &&
-              data.addresses.map((address: any, i: number) => (
+              data?.addresses?.map((address: any, i: number) => (
                 <div className='flex flex-col space-y-4 col-span-1' key={i}>
                   <p className='mb-1 text-lg md:mb-2 md:text-xl xl:text-2xl'>
                     {address.address_title}

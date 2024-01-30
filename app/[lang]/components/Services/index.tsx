@@ -81,7 +81,7 @@ export default async function Services({ page,data }:{page:any,data:any}) {
               </p>
             </div>
             <ul className="flex flex-col space-y-[18px]">
-              {data.map((list:string,i:number)=><li key={i} className="custom-list-bullet text-xs md:text-sm xl:text-xl">{list}</li>)}
+              {data?.map((list:string,i:number)=><li key={i} className="custom-list-bullet text-xs md:text-sm xl:text-xl">{list}</li>)}
             </ul>
           </div>
           <div className='relative h-[299px] w-[299px] md:h-[339px] md:w-[339px] sl:w-[449px] sl:h-[449px] xl:h-[666px] xl:w-[699px] flex-shrink-0 object-contain mt-8 md:mt-0'>
