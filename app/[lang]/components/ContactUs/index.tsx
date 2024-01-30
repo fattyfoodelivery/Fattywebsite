@@ -286,7 +286,7 @@ export default function Contact({ page, data }: { page: page; data: any }) {
         <div className='container my-20'>
           <DynamicMap
             locations={locations}
-            apiKey={process.env.GOOGLE_MAP_API_KEY || ''}
+            apiKey='AIzaSyAIJoMRTOI9Ux3NNdB6KZ-QPX6SzspXcTg'
           />
         </div>
       )}
