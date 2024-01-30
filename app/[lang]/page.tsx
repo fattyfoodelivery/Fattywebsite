@@ -35,21 +35,21 @@ export default async function Home({
       >
         <Header lang={lang} location='home' />
         <div className='container'>
-          <div className='flex flex-col md:flex-row items-center justify-center md:justify-between w-fit md:w-full py-10 md:py-14 lg:py-0'>
-            <div className='space-y-6 pt-5 md:pt-0'>
+          <div className='flex flex-col md:flex-row items-center justify-center md:justify-between w-fit md:w-full py-10 md:py-14 xl:py-0'>
+            <div className='space-y-6 md:w-1/2 xl:w-full pt-5 md:pt-0'>
               <div className='w-fit rounded-full bg-primary bg-opacity-60 px-4 py-1 italic text-white'>
                 {page.home.subtitle}
               </div>
               <h1 className='w-full md:w-[446px] text-2xl lg:text-3xl 3xl:text-4xl font-bold leading-[38px] lg:leading-[48px] 3xl:leading-[58px] tracking-widest text-tertiary'>
                 {data?.editable?.['home-title']}
               </h1>
-              <p className='leading[26px] pr-4 md:p-0 w-full md:w-[723px] text-base font-medium tracking-normal text-quaternary'>
+              <p className='leading[26px] pr-4 md:p-0 w-full md:w-[423px] sl:w-[456px] lg:w-[723px] text-base font-medium tracking-normal text-quaternary'>
                 {data?.editable?.['home-description']}
               </p>
-              <div className='flex items-center flex-wrap md:flex-nowrap'>
+              <div className='flex items-center flex-wrap '>
                 {data?.app_urls.app_store.active && <Link
                   href={data?.app_urls.app_store.url}
-                  className='flex rounded-lg bg-tertiary w-[156px] sm:w-[160px] 2xl:w-[173px] my-1 px-4 py-2 space-x-2 mr-2 lg:mr-4'
+                  className='flex items-center justify-center rounded-lg bg-tertiary w-[156px] sm:w-[166px] 2xl:w-[173px] h-[59px] my-1 px-4 py-2 space-x-2 mr-2 lg:mr-4'
                 >
                   <Image
                     src={AppstoreImg}
@@ -64,7 +64,7 @@ export default async function Home({
                 </Link>}
                 {data?.app_urls.play_store.active &&<Link
                   href={data?.app_urls.play_store.url}
-                  className='flex rounded-lg bg-tertiary w-[156px] sm:w-[160px] 2xl:w-[173px] my-1 px-4 py-2 space-x-2 mr-2 lg:mr-4'
+                  className='flex items-center justify-center rounded-lg bg-tertiary w-[156px] sm:w-[166px] 2xl:w-[173px] h-[59px] my-1 px-4 py-2 space-x-2 mr-2 lg:mr-4'
                 >
                   <Image
                     src={GooglePlayImg}
@@ -79,7 +79,7 @@ export default async function Home({
                 </Link>}
                 {data?.app_urls.apk_pure.active &&<Link
                   href={data?.app_urls.apk_pure.url}
-                  className='flex rounded-lg bg-tertiary w-[156px] sm:w-[160px] 2xl:w-[173px] my-1 px-4 py-2 space-x-2 mr-2 lg:mr-4'
+                  className='flex items-center justify-center rounded-lg bg-tertiary w-[156px] sm:w-[166px] 2xl:w-[173px] h-[59px] my-1 px-4 py-2 space-x-2 mr-2 lg:mr-4'
                 >
                   <Image
                     src={ApkPureImg}
@@ -94,7 +94,7 @@ export default async function Home({
                 </Link>}
                 {data?.app_urls.direct_link.active &&<Link
                   href={data?.app_urls.direct_link.url}
-                  className='flex rounded-lg bg-tertiary w-[156px] sm:w-[160px] 2xl:w-[173px] my-1 px-4 py-2 space-x-2 mr-2 lg:mr-4'
+                  className='flex items-center justify-center rounded-lg bg-tertiary w-[156px] sm:w-[166px] 2xl:w-[173px] h-[59px] my-1 px-4 py-2 space-x-2 mr-2 lg:mr-4'
                 >
                   <Image
                     src={DownloadImg}

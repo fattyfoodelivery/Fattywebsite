@@ -16,7 +16,7 @@ export default async function Services({ page,data }:{page:any,data:any}) {
             {page.services.description}
           </p>
         </div>
-        <div className='flex flex-col lg:flex-row items-center justify-center -space-y-20 md:space-y-10 lg:space-y-0 lg:space-x-8 md:pb-[79px] md:pt-[50.5px]'>
+        <div className='flex flex-col sl:flex-row items-center justify-center -space-y-20 md:space-y-10 sl:space-y-0 sl:space-x-8 md:pb-[79px] md:pt-[50.5px]'>
           <div className='relative scale-50 md:scale-100 h-[200px] w-[664px] overflow-hidden rounded-[10px] bg-soft-primary'>
             <Image
               src={ServiceBG}
@@ -27,10 +27,10 @@ export default async function Services({ page,data }:{page:any,data:any}) {
             />
             <div className='z-10 flex items-center justify-center space-x-[100px]'>
               <div className='flex flex-col space-y-6 pl-14'>
-                <p className='text-lg italic text-hard-primary'>
+                <p className='text-lg md:text-base xl:text-lg italic text-hard-primary'>
                   {page.services.food_description}
                 </p>
-                <p className='text-3.5xl font-bold text-primary'>
+                <p className='text-3.5xl md:text-xl sl:text-3xl xl:text-3.5xl font-bold text-primary'>
                   {page.services.food_title}
                 </p>
               </div>
@@ -53,10 +53,10 @@ export default async function Services({ page,data }:{page:any,data:any}) {
             />
             <div className='z-10 flex items-center justify-center space-x-[100px]'>
               <div className='flex flex-col space-y-6 pl-14'>
-                <p className='text-lg italic text-hard-primary'>
+                <p className='text-lg md:text-base xl:text-lg italic text-hard-primary'>
                   {page.services.parcel_description}
                 </p>
-                <p className='text-3.5xl font-bold text-primary'>
+                <p className='text-3.5xl md:text-xl sl:text-3xl xl:text-3.5xl font-bold text-primary'>
                   {page.services.parcel_title}
                 </p>
               </div>

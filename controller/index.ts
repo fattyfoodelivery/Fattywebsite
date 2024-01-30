@@ -4,7 +4,7 @@ import type { Locale } from '@/i18n.config'
 import { FormData } from '@/app/[lang]/components/ContactUs';
 
 const api = axios.create({
-  baseURL: 'http://128.199.185.60/api', // adjust the base URL accordingly
+  baseURL: process.env.API_ENDPOINT, // adjust the base URL accordingly
   timeout: 5000, // set a timeout for requests
   headers: {
     'Content-Type': 'application/json',

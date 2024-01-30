@@ -48,7 +48,7 @@ const validationSchema = yup.object().shape({
   message: yup.string().required('Message is required')
 })
 export default function Contact({ page, data }: { page: page; data: any }) {
-  const [isSuccess,setIsSuccess] = useState<boolean>(false);
+  const [isSuccess, setIsSuccess] = useState<boolean>(false)
   const {
     register,
     setValue,
@@ -62,13 +62,13 @@ export default function Contact({ page, data }: { page: page; data: any }) {
     try {
       const response = await sendMessageApi(data)
       console.log(response)
-      if(response.success){
-        setValue('name','')
-        setValue('phone','')
-        setValue('email','')
-        setValue('subject','')
-        setValue('message','')
-        setIsSuccess(true);
+      if (response.success) {
+        setValue('name', '')
+        setValue('phone', '')
+        setValue('email', '')
+        setValue('subject', '')
+        setValue('message', '')
+        setIsSuccess(true)
       }
     } catch (error) {
       console.error('Error during form submission:', error)
@@ -76,11 +76,11 @@ export default function Contact({ page, data }: { page: page; data: any }) {
     }
   }
 
-  const locations = data?.locations.map((location:any) => ({
+  const locations = data?.locations.map((location: any) => ({
     description: location.description,
     lat: parseFloat(location.lat),
-    lng: parseFloat(location.lng),
-  }));
+    lng: parseFloat(location.lng)
+  }))
 
   return (
     <section className='relative'>
@@ -109,21 +109,22 @@ export default function Contact({ page, data }: { page: page; data: any }) {
           </p>
         </div>
       </div>
-      <div className='container my-[80px] flex flex-col items-center justify-center space-y-6 lg:flex-row lg:items-start lg:space-x-8 lg:space-y-0'>
+      <div className='container my-[80px] flex flex-col items-center justify-center space-y-6 sl:flex-row sl:items-start sl:space-x-8 sl:space-y-0'>
         <div className='flex w-full flex-col space-y-8 md:w-fit'>
           <div className='relative rounded-2xl'>
             <Image
               src={data.img}
               alt='Address'
-              width={664}
-              height={346}
-              layout='responsive'
+              width='0'
+              height='0'
+              sizes='100vw'
+              className='h-auto w-full'
             />
           </div>
-          <div className='flex flex-col space-y-6 md:flex-row md:justify-between md:space-x-8 md:space-y-0'>
+          <div className='grid grid-cols-1 gap-6 md:grid-cols-2 md:justify-between md:gap-x-8 md:gap-y-4'>
             {data &&
               data.addresses.map((address: any, i: number) => (
-                <div className='flex flex-col space-y-4' key={i}>
+                <div className='flex flex-col space-y-4 col-span-1' key={i}>
                   <p className='mb-1 text-lg md:mb-2 md:text-xl xl:text-2xl'>
                     {address.address_title}
                   </p>
@@ -134,7 +135,7 @@ export default function Contact({ page, data }: { page: page; data: any }) {
                       height={40}
                       alt='location'
                     />
-                    <p className='text-xs font-medium lg:text-sm xl:text-base'>
+                    <p className='text-2xs md:text-xs font-medium lg:text-sm xl:text-base'>
                       {address.address}
                     </p>
                   </div>
@@ -145,7 +146,7 @@ export default function Contact({ page, data }: { page: page; data: any }) {
                       height={40}
                       alt='location'
                     />
-                    <p className='text-xs font-medium lg:text-sm xl:text-base'>
+                    <p className='text-2xs md:text-xs font-medium lg:text-sm xl:text-base'>
                       {address.phone}
                     </p>
                   </div>
@@ -156,7 +157,7 @@ export default function Contact({ page, data }: { page: page; data: any }) {
                       height={40}
                       alt='location'
                     />
-                    <p className='text-xs font-medium lg:text-sm xl:text-base'>
+                    <p className='text-2xs md:text-xs font-medium lg:text-sm xl:text-base'>
                       {address.mail}
                     </p>
                   </div>
@@ -166,12 +167,14 @@ export default function Contact({ page, data }: { page: page; data: any }) {
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className='flex w-full flex-col space-y-4 lg:w-1/2'
-          onClick={()=>setIsSuccess(false)}
+          className='flex w-full flex-col space-y-4 sl:w-1/2'
+          onClick={() => setIsSuccess(false)}
         >
-          {
-            isSuccess && <p className="text-2xs md:text-xs text-green-500">Successfull sent!</p>
-          }
+          {isSuccess && (
+            <p className='text-2xs text-green-500 md:text-xs'>
+              Successfull sent!
+            </p>
+          )}
           <div className='flex flex-col space-y-2'>
             <p className='text-xs lg:text-sm xl:text-base'>
               {page?.contact.name}
@@ -283,7 +286,7 @@ export default function Contact({ page, data }: { page: page; data: any }) {
         <div className='container my-20'>
           <DynamicMap
             locations={locations}
-            apiKey='AIzaSyAIJoMRTOI9Ux3NNdB6KZ-QPX6SzspXcTg'
+            apiKey={process.env.GOOGLE_MAP_API_KEY || ''}
           />
         </div>
       )}

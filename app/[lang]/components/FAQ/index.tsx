@@ -32,7 +32,7 @@ export default function FAQ({ page,data }: { page:FAQData,data:any }) {
   }
 
   return (
-    <section className='container mb-20 flex flex-col items-center'>
+    <section id='faq' className='container mb-20 flex flex-col items-center'>
       <p className='mb-[52px] text-center text-lg md:text-2xl lg:text-3.5xl font-bold tracking-wider'>
         {page?.faq.title}
       </p>

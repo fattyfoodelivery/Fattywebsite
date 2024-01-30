@@ -104,6 +104,7 @@ export default function Subscribe({ lang }: { lang: Locale }) {
                   className={`${
                     errors?.email ? 'border-2 border-red-700' : ''
                   } w-[158px] rounded-[32px] bg-white px-6 py-2 text-xs italic outline-none md:w-[258px] md:py-4 md:text-sm lg:w-[458px] lg:py-5 lg:text-base`}
+                  onClick={()=>setIsSuccess(false)}
                 />
                 <button
                   type='submit'

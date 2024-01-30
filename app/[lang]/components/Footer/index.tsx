@@ -57,13 +57,13 @@ export default async function Footer({ lang }: { lang: Locale }) {
           <Link href='/' className='text-xs font-light md:text-sm lg:text-base'>
             Home
           </Link>
-          <Link href='/' className='text-xs font-light md:text-sm lg:text-base'>
+          <Link href='/services' className='text-xs font-light md:text-sm lg:text-base'>
             Services
           </Link>
-          <Link href='/' className='text-xs font-light md:text-sm lg:text-base'>
+          <Link href='/contact' className='text-xs font-light md:text-sm lg:text-base'>
             Contact Us
           </Link>
-          <Link href='/' className='text-xs font-light md:text-sm lg:text-base'>
+          <Link href='/contact#faq' className='text-xs font-light md:text-sm lg:text-base'>
             FAQ
           </Link>
         </div>
