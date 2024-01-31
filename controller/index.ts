@@ -6,7 +6,7 @@ const baseURL = 'https://fatty-api.fattyfooddeli.com/api';
 
 export const getFetchData = async (locale: Locale) => {
   try {
-    const response = await fetch(`${baseURL}/editable_fields/${locale}`);
+    const response = await fetch(`${baseURL}/editable_fields/${locale}`, { next: { revalidate: 0 } });
     const data = await response.json();
     return data.data;
   } catch (error) {
