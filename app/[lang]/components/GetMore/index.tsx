@@ -1,4 +1,3 @@
-import { Locale } from '@/i18n.config'
 import Image from 'next/image'
 import ApplicationBG from '../img/application_map.png'
 import HandHolderImg from '../img/appplication_img.png'
@@ -45,7 +44,7 @@ export default function GetMore({page,data }: {page:any,data:any }) {
               ))}
             </div>
             <div className='flex items-center flex-wrap'>
-            {data?.app_store.active && <Link
+            {data?.app_store.active===1 && <Link
                   href={data?.app_store.url}
                   className='flex items-center justify-center rounded-lg w-[156px] sm:w-[166px] 2xl:w-[173px] my-1 bg-mid-primary h-[59px] px-4 py-2 space-x-2 mr-2 md:mr-4'
                 >
@@ -60,7 +59,7 @@ export default function GetMore({page,data }: {page:any,data:any }) {
                     <p className='text-secondary'>App Store</p>
                   </div>
                 </Link>}
-                {data?.play_store.active &&<Link
+                {data?.play_store.active===1 &&<Link
                   href={data?.play_store.url}
                   className='flex items-center justify-center rounded-lg w-[156px] sm:w-[166px] 2xl:w-[173px] my-1 bg-mid-primary h-[59px] px-4 py-2 space-x-2 mr-2 md:mr-4'
                 >
@@ -75,7 +74,7 @@ export default function GetMore({page,data }: {page:any,data:any }) {
                     <p className='text-secondary'>Google Play</p>
                   </div>
                 </Link>}
-                {data?.apk_pure.active &&<Link
+                {data?.apk_pure.active===1 &&<Link
                   href={data?.apk_pure.url}
                   className='flex items-center justify-center rounded-lg w-[156px] sm:w-[166px] 2xl:w-[173px] my-1 bg-mid-primary h-[59px] px-4 py-2 space-x-2 mr-2 md:mr-4'
                 >
@@ -90,7 +89,7 @@ export default function GetMore({page,data }: {page:any,data:any }) {
                     <p className='text-secondary'>APK Pure</p>
                   </div>
                 </Link>}
-                {data?.direct_link.active &&<Link
+                {data?.direct_link.active===1 &&<Link
                   href={data?.direct_link.url}
                   className='flex items-center justify-center rounded-lg w-[156px] sm:w-[166px] 2xl:w-[173px] my-1 bg-mid-primary h-[59px] px-4 py-2 space-x-2 mr-2 md:mr-4'
                 >

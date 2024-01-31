@@ -5,7 +5,7 @@ import OrderIcon from '../img/order.svg'
 import ParcelIcon from '../img/parcel.svg'
 import WhyChooseUsImg from '../img/whyChooseUs.png'
 
-export default async function Services({ page,data }:{page:any,data:any}) {
+export default function Services({ page,data }:{page:any,data:any}) {
 
   return (
     <section className='h-fit w-screen py-20 relative'>

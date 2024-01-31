@@ -1,7 +1,5 @@
 "use client"
-import { useEffect, useState } from 'react'
-import { Locale } from '@/i18n.config'
-import { getDictionary } from '@/lib/dictionary'
+import { useState } from 'react'
 import Accordion from '../Accordian'
 
 type FAQItem = {

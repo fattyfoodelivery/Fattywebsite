@@ -1,46 +1,48 @@
 // api.ts
-import axios from 'axios';
-import type { Locale } from '@/i18n.config'
+import type { Locale } from '@/i18n.config';
 import { FormData } from '@/app/[lang]/components/ContactUs';
 
-const api = axios.create({
-  baseURL: 'https://fatty-api.fattyfooddeli.com/api', // adjust the base URL accordingly
-  timeout: 5000, // set a timeout for requests
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+const baseURL = 'https://fatty-api.fattyfooddeli.com/api';
 
 export const getFetchData = async (locale: Locale) => {
   try {
-    const response = await api.get(`/editable_fields/${locale}`);
-    return response.data.data;
+    const response = await fetch(`${baseURL}/editable_fields/${locale}`);
+    const data = await response.json();
+    return data.data;
   } catch (error) {
     console.error('Error fetching dictionary:', error);
     // You can handle the error here, e.g., return a default dictionary
     return {};
   }
-}
+};
 
 export const subscribeApi = async (data: { email: string }) => {
   try {
-    const response = await api.post('/subscription', data);
-    return response.data; // modify this based on your API response structure
+    const response = await fetch(`${baseURL}/subscription`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    return response.json(); // modify this based on your API response structure
   } catch (error) {
     throw error; // handle errors as needed
   }
 };
 
-export const sendMessageApi = async (data:FormData) => {
+export const sendMessageApi = async (data: FormData) => {
   try {
-    const response = await api.post('/contact', data);
-    return response.data; // handle the response as needed
+    const response = await fetch(`${baseURL}/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    return response.json(); // handle the response as needed
   } catch (error) {
     console.error('Error during subscription:', error);
     // handle errors as needed
   }
 };
-
-
-
-// Add more API functions as needed

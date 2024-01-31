@@ -33,7 +33,7 @@ const DynamicMap: React.FC<MapProps> = React.memo(({ apiKey, locations }) => {
 
       const map = new window.google.maps.Map(mapContainerRef.current, {
         center: { lat: locations[0].lat, lng: locations[0].lng },
-        zoom: 15,
+        zoom: 7,
         mapTypeId: 'roadmap',
       });
 
