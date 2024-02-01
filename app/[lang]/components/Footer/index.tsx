@@ -14,7 +14,7 @@ import FacebookIcon from './facebook.svg'
 import TelegramIcon from './telegram.svg'
 
 export default async function Footer({ lang }: { lang: Locale }) {
-  const { page } = await getDictionary(lang)
+  const { page,navigation } = await getDictionary(lang)
   const data = await getFetchData(lang)
 
   const footer_address = data?.addresses?.filter(
@@ -52,19 +52,19 @@ export default async function Footer({ lang }: { lang: Locale }) {
             {data?.editable?.['footer-description']}
           </p>
         </div>
-        <div className='flex w-full flex-col justify-start space-y-2 place-self-start md:mr-7 md:w-1/6 md:space-y-4 lg:mr-12 lg:space-y-6'>
+        <div className='flex w-full flex-col justify-start space-y-2 place-self-start md:mr-7 md:w-1/5 md:space-y-4 lg:mr-12 lg:space-y-6'>
           <p className='text-lg md:text-xl lg:text-2xl'>{page.footer.link}</p>
           <Link href='/' className='text-xs font-light md:text-sm lg:text-base'>
-            Home
+            {navigation.home}
           </Link>
           <Link href='/services' className='text-xs font-light md:text-sm lg:text-base'>
-            Services
+            {navigation.services}
           </Link>
           <Link href='/contact' className='text-xs font-light md:text-sm lg:text-base'>
-            Contact Us
+            {navigation.contact}
           </Link>
           <Link href='/contact#faq' className='text-xs font-light md:text-sm lg:text-base'>
-            FAQ
+            {navigation.faq}
           </Link>
         </div>
         <div className='flex w-full flex-col justify-start space-y-2 place-self-start md:mr-7 md:w-fit md:space-y-4 lg:mr-12 lg:w-1/4 lg:space-y-6'>

@@ -2,7 +2,8 @@
   "navigation": {
     "home": "ပင်မ",
     "services": "ဝန်ဆောင်မှုများ",
-    "contact": "အဆက်အသွယ်"
+    "contact": "အဆက်အသွယ်",
+    "faq":"မေးခွန်းများ"
   },
   "page": {
     "home": {
@@ -59,22 +60,26 @@
       "mail_title": "နောက်ဆုံးရသတင်းများနှင့် ကမ်းလှမ်းချက်များကို ရယူပါ။",
       "mail_description": "ကျွန်ုပ်တို့၏သတင်းလွှာကို စာရင်းသွင်းပါ။",
       "email":"သင့်အီးမေးလ်",
-      "subscribe": "စာရင်းသွင်းပါ"
+      "subscribe": "စာရင်းသွင်းပါ",
+      "sent":"အောင်မြင်စွာပေးပိုပီးပါပြီ"
     },
     "contact": {
-      "description": "ဆက်သွယ်လိုက်ရန် ",
+      "description": "အဆက်အသွယ် မပြတ်စေဖို့",
       "title": "ဆက်သွယ်ရန်",
       "lasio": "လားရှိုးလိပ်စာ",
       "muse": "မူဆယ်လိပ်စာ",
       "name": "နာမည်",
       "name_input": "နာမည်ရိုက်ပါ",
       "phone": "ဖုန်းနံပါတ်",
+      "phone_input": "ဖုန်းနံပါတ်ထည့်ပါ",
       "email": "အီးမေးလ်လိပ်စာ",
+      "email_input": "အီးမေးလ်ထည့်ပါ",
       "subject": "ခေါင်းစဉ်",
       "subject_input": "ခေါင်းစဉ်ရိုက်ပါ",
       "message": "မက်ဆေ့ချ်",
       "message_input": "မက်ဆေ့ချ်ရိုက်ပါ",
-      "button": "ယခုပို့ပါ"
+      "button": "ယခုပို့ပါ",
+      "sent":"အောင်မြင်စွာပေးပိုပီးပါပြီ"
     },
     "faq": {
       "title": "အမေးများသောမေးခွန်းများ",
@@ -113,9 +118,9 @@
     },
     "footer": {
       "description": "Discover the ultimate convenience with our food delivery and delivery app. Satisfy your cravings by browsing a variety of restaurants, and track your order in real-time. Enjoy a seamless experience.",
-      "link": "Quick Link",
+      "link": "အမြန်ချိတ်ဆက်ရန်",
       "address": "Our Address",
-      "follow": "Follow Us On",
+      "follow": "စောင့်ကြည့်ရန်",
       "copyright": "Copyright © 2024. All Rights Reserved. Design By Fatty Food Delivery."
     }
   }

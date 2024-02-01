@@ -25,6 +25,7 @@ type ProcessItem = {
   mail_description: string
   email: string
   subscribe: string
+  sent:string
 }
 
 type ProcessData = {
@@ -103,12 +104,12 @@ export default function Subscribe({ lang }: { lang: Locale }) {
                   placeholder={pageData?.process.email}
                   className={`${
                     errors?.email ? 'border-2 border-red-700' : ''
-                  } w-[158px] rounded-[32px] bg-white px-6 py-2 text-xs italic outline-none md:w-[258px] md:py-4 md:text-sm lg:w-[458px] lg:py-5 lg:text-base`}
+                  } w-[158px] rounded-[32px] bg-white px-6 py-2 text-xs italic outline-none md:w-[258px] md:py-4 md:text-sm lg:w-[458px] lg:py-5 2xl:text-base`}
                   onClick={()=>setIsSuccess(false)}
                 />
                 <button
                   type='submit'
-                  className='z-10 -ml-[30px] w-fit rounded-[32px] bg-secondary px-4 py-2 text-xs text-primary md:-ml-[60px] md:py-4 md:text-sm lg:-ml-[130px] lg:w-[134.22px] lg:px-7 lg:py-5 lg:text-base'
+                  className='z-10 -ml-[30px] w-fit rounded-[32px] bg-secondary px-4 py-2 text-xs text-primary md:-ml-[60px] md:py-4 md:text-sm lg:-ml-[130px] lg:w-[144.22px] lg:px-7 lg:py-5 2xl:text-base'
                 >
                   {pageData?.process.subscribe}
                 </button>
@@ -118,7 +119,7 @@ export default function Subscribe({ lang }: { lang: Locale }) {
                   {errors?.email?.message}
                 </div>
               )}
-               {isSuccess && <p className="text-2xs md:text-xs text-green-500 text-center">Successfull sent!</p>}
+               {isSuccess && <p className="text-2xs md:text-xs sl:text-xl text-black text-center">{pageData?.process.sent}</p>}
             </form>
           </div>
         </div>

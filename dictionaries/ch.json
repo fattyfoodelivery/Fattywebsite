@@ -2,7 +2,8 @@
   "navigation": {
     "home": "主页",
     "services": "我们的服务",
-    "contact": "联系我们"
+    "contact": "联系我们",
+    "faq":"常见问题"
   },
   "page": {
     "home": {
@@ -55,7 +56,8 @@
       "mail_title": "获取最新消息和优惠",
       "mail_description": "订阅我们的新闻",
       "email":"电子邮件地址",
-      "subscribe": "订阅"
+      "subscribe": "订阅",
+      "sent":"发遣成功"
     },
     "contact": {
       "description": "保持联系",
@@ -65,12 +67,15 @@
       "name": "姓名",
       "name_input": "输入姓名",
       "phone": "电话号码",
+      "phone_input": "输电话号码",
       "email": "电子邮件地址",
+      "email_input": "输邮件",
       "subject": "主题",
       "subject_input": "输入主题",
       "message": "留言",
       "message_input": "在这里输入留言",
-      "button": "立即发送"
+      "button": "立即发送",
+      "sent":"发遣成功"
     },
 
     "faq": {

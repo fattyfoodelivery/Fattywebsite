@@ -23,12 +23,15 @@ type page = {
     name: string
     name_input: string
     phone: string
+    phone_input: string
     email: string
+    email_input: string
     subject: string
     subject_input: string
     message: string
     message_input: string
     button: string
+    sent:string
   }
 }
 
@@ -86,25 +89,25 @@ export default function Contact({ page, data }: { page: page; data: any }) {
     <section className='relative'>
       <div className='max-w-screen relative -z-20 mb-2 flex items-center justify-center'>
         <div className='absolute left-0 top-0 z-10 h-full w-full bg-black opacity-50' />
-        <div className='relative object-contain md:h-[144px] md:w-[380px] xl:h-[244px] xl:w-[480px] '>
+        <div className='relative object-contain md:h-[114px] sl:h-[157px] lg:h-[177px] md:w-[380px] xl:h-[244px] xl:w-[480px] '>
           <Image src={GroupImg} alt='group' fill className='flex-grow' />
         </div>
-        <div className='relative object-contain md:h-[144px] md:w-[380px] xl:h-[244px] xl:w-[480px]'>
+        <div className='relative object-contain md:h-[114px] sl:h-[157px] lg:h-[177px] md:w-[380px] xl:h-[244px] xl:w-[480px]'>
           <Image src={Group1Img} alt='group' fill className='flex-grow' />
         </div>
-        <div className='relative object-contain md:h-[144px] md:w-[380px] xl:h-[244px] xl:w-[480px]'>
+        <div className='relative object-contain md:h-[114px] sl:h-[157px] lg:h-[177px] md:w-[380px] xl:h-[244px] xl:w-[480px]'>
           <Image src={Group2Img} alt='group' fill className='flex-grow' />
         </div>
-        <div className='relative object-contain md:h-[144px] md:w-[380px] xl:h-[244px] xl:w-[480px]'>
+        <div className='relative object-contain md:h-[114px] sl:h-[157px] lg:h-[177px] md:w-[380px] xl:h-[244px] xl:w-[480px]'>
           <Image src={Group3Img} alt='group' fill className='flex-grow' />
         </div>
       </div>
-      <div className='container absolute left-1/2 right-1/2 -translate-x-1/2 transform md:top-10 lg:top-12 xl:top-[80px] '>
-        <div className='mb-[52px] flex flex-col space-y-2 text-center md:space-y-4'>
+      <div className='container absolute left-1/2 right-1/2 -translate-x-1/2 transform md:top-5 sl:top-10 lg:top-12 xl:top-[80px] '>
+        <div className='mb-[52px] flex flex-col space-y-2 text-center lg:space-y-4'>
           <p className='text-sm font-light italic  text-primary md:text-base lg:text-lg'>
             {page?.contact.description}
           </p>
-          <p className='text-[24px] font-semibold md:text-3.5xl md:font-bold md:leading-7 md:text-white lg:leading-10'>
+          <p className='text-[24px] font-semibold md:text-2xl lg:text-3.5xl md:font-bold md:leading-7 md:text-white lg:leading-10'>
             {page?.contact.title}
           </p>
         </div>
@@ -172,7 +175,7 @@ export default function Contact({ page, data }: { page: page; data: any }) {
         >
           {isSuccess && (
             <p className='text-2xs text-green-500 md:text-xs'>
-              Successfull sent!
+              {page?.contact.sent}
             </p>
           )}
           <div className='flex flex-col space-y-2'>
@@ -207,7 +210,7 @@ export default function Contact({ page, data }: { page: page; data: any }) {
               className={`${
                 errors?.phone ? 'border border-red-500' : ''
               } rounded-md bg-tertiary p-3 text-xs font-medium tracking-wide text-light-secondary md:text-sm lg:p-4 lg:text-base`}
-              placeholder={'09 123 456 789'}
+              placeholder={page?.contact.phone_input}
             />
             {errors?.phone && (
               <div className='text-2xs text-red-500 md:text-xs'>
@@ -227,7 +230,7 @@ export default function Contact({ page, data }: { page: page; data: any }) {
               className={`${
                 errors?.email ? 'border border-red-500' : ''
               } rounded-md bg-tertiary p-3 text-xs font-medium tracking-wide text-light-secondary md:text-sm lg:p-4 lg:text-base`}
-              placeholder={'susu@gmail.com'}
+              placeholder={page?.contact.email_input}
             />
             {errors?.email && (
               <div className='text-2xs text-red-500 md:text-xs'>

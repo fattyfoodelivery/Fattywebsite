@@ -2,7 +2,9 @@
   "navigation": {
     "home": "Home",
     "services": "Our Services",
-    "contact": "Contact Us"
+    "contact": "Contact Us",
+    "faq":"FAQ"
+
   },
   "page": {
     "home": {
@@ -59,7 +61,8 @@
       "mail_title": "Get The Latest News And Offers",
       "mail_description": "Subscribe to our newsletter",
       "email":"Your Email",
-      "subscribe": "Subscribe"
+      "subscribe": "Subscribe",
+      "sent":"Successfully  sent!"
     },
     "contact": {
       "description": "Get in Touch",
@@ -69,12 +72,15 @@
       "name": "Name",
       "name_input": "Enter Name",
       "phone": "Phone Number",
+      "phone_input": "Enter Phone Number",
       "email": "Email Address",
+      "email_input": "Enter your email",
       "subject": "Subject",
       "subject_input": "Enter Subject",
       "message": "Message",
       "message_input": "Enter Message here",
-      "button": "Send Now"
+      "button": "Send Now",
+      "sent":"Successfully  sent!"
     },
     "faq": {
       "title": "Frequently Asked Questions",
