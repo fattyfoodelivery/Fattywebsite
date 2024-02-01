@@ -33,6 +33,14 @@ type page = {
     button: string
     sent:string
   }
+  error:{
+    name:string
+    email:string 
+    phone:string 
+    subject:string 
+    message:string 
+    email_invalid:string 
+  }
 }
 
 export interface FormData {
@@ -43,14 +51,14 @@ export interface FormData {
   message: string
 }
 
-const validationSchema = yup.object().shape({
-  name: yup.string().required('Name is required'),
-  phone: yup.string().required('Phone number is required'),
-  email: yup.string().email('Invalid email').required('Email is required'),
-  subject: yup.string().required('Subject is required'),
-  message: yup.string().required('Message is required')
-})
 export default function Contact({ page, data }: { page: page; data: any }) {
+const validationSchema = yup.object().shape({
+  name: yup.string().required(page.error.name),
+  phone: yup.string().required(page.error.phone),
+  email: yup.string().email(page.error.email_invalid).required(page.error.email),
+  subject: yup.string().required(page.error.subject),
+  message: yup.string().required(page.error.message)
+})
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
   const {
     register,
@@ -174,7 +182,7 @@ export default function Contact({ page, data }: { page: page; data: any }) {
           onClick={() => setIsSuccess(false)}
         >
           {isSuccess && (
-            <p className='text-2xs text-green-500 md:text-xs'>
+            <p className='text-xs text-green-500 md:text-xl'>
               {page?.contact.sent}
             </p>
           )}

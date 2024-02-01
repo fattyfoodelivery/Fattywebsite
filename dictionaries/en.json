@@ -123,6 +123,14 @@
       "address": "Our Address",
       "follow": "Follow Us On",
       "copyright": "Copyright © 2024. All Rights Reserved. Design By Fatty Food Delivery."
+    },
+    "error":{
+      "name":"Name is required.",
+      "email":"Email is requried.",
+      "phone":"Phone number is requried.",
+      "subject":"Subject is required.",
+      "message":"Message is required.",
+      "email_invalid":"Invalid email address"
     }
   }
 }

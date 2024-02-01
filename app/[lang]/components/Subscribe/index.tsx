@@ -27,21 +27,30 @@ type ProcessItem = {
   subscribe: string
   sent:string
 }
-
+type error = {
+    name:string
+    email:string 
+    phone:string 
+    subject:string 
+    message:string 
+    email_invalid:string 
+}
 type ProcessData = {
   process: ProcessItem
+  error:error
 }
 
-const validationSchema = yup.object().shape({
-  email: yup
-    .string()
-    .email('Invalid email address')
-    .required('Email is required')
-})
 
 export default function Subscribe({ lang }: { lang: Locale }) {
   const [pageData, setPageData] = useState<ProcessData | null>(null)
   const [isSuccess,setIsSuccess] = useState<boolean>(false);
+
+  const validationSchema = yup.object().shape({
+    email: yup
+      .string()
+      .email(pageData?.error.email_invalid)
+      .required(pageData?.error.email)
+  })
 
   const {
     register,

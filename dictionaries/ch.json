@@ -119,6 +119,14 @@
       "address": "我们的地址",
       "follow": "在社交媒体上关注我们",
       "copyright": "版权所有 © 2024。保留所有权利。由Fatty Food Delivery设计。"
+    },
+    "error":{
+      "name":"名为必填项",
+      "email":"电子邮件为必填项",
+      "phone":"电话号码为必填项",
+      "subject":"主题为必填项",
+      "message":"需要留言",
+      "email_invalid":"无效的邮件地址"
     }
   }
 }
