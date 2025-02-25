@@ -2,7 +2,7 @@
 import type { Locale } from '@/i18n.config';
 import { FormData } from '@/app/[lang]/components/ContactUs';
 
-const baseURL = 'https://fatty-api.fattyfooddeli.com/api';
+const baseURL = 'https://api.foodelivery.click/api';
 
 export const getFetchData = async (locale: Locale) => {
   try {
